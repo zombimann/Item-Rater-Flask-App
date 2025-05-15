@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add a New Item</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        form {
+            margin-bottom: 10px;
+        }
+        input[type="text"] {
+            padding: 8px;
+            font-size: 16px;
+            width: 250px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 8px 16px;
+            font-size: 16px;
+            margin-left: 10px;
+            cursor: pointer;
+            border: 1px solid #007bff;
+            background-color: #007bff;
+            color: white;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+        p.error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Add a New Item</h1>
+    <form method="post" action="{{ url_for('add_item') }}">
+        <input type="text" name="name" placeholder="Enter a single word" required>
+        <button type="submit">Add</button>
+    </form>
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+</body>
+</html>
